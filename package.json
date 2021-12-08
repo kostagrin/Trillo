@@ -1,0 +1,39 @@
+{
+  "name": "trillo",
+  "version": "1.0.0",
+  "description": "Landing page for Trillo",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+
+    "compile:sass": "node-sass sass/main.scss css-build/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css-build/style.concat.css -o css-build/style.prefix.css",
+    "compress:css": "node-sass css-build/style.prefix.css css/style.min.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kostagrin/Trillo.git"
+  },
+  "keywords": [
+    "portfolio",
+    "BEM",
+    "SASS",
+    "Flex"
+  ],
+  "author": "Konstantin Grinev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kostagrin/Trillo/issues"
+  },
+  "homepage": "https://github.com/kostagrin/Trillo#reaadme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "concat": "^1.0.3",
+    "node-sass": "^7.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^9.0.2"
+  }
+}
