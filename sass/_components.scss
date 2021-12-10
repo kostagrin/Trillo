@@ -1,0 +1,123 @@
+///////////////////////////////
+//            LOGO           //
+
+.logo {
+    height: 3.25rem;
+    margin-left: 2rem;
+}
+
+///////////////////////////////
+//           SEARCH          //
+.search {
+    flex: 0 0 40%; //format search bar as a flex EL; no grow, no shrink.
+    display: flex; //make the element as a flex container for its children els.
+    justify-content: center; //align children els along the MAIN axis.
+    align-items: center; //align children els along the CROSS axis.
+
+    &__input {
+        font-family: inherit; //fonts in <form> are not inhereted automatically.
+        font-size: inherit;
+        color: inherit;
+        background-color: var(--color-grey-light-2);
+        border: none;
+        padding: .7rem 2rem;
+        border-radius: 3rem;
+        width: 90%; //initial size, makes it possible to animante.
+        margin-right: -3rem; //move the magnifying glass inside the searching bar.
+        transition: all .2s;
+
+        &:focus {
+            outline: none; //reset browser settings.
+            width: 100%; //simple animation.
+            background-color: var(--color-grey-light-3);
+        }
+
+        &::-webkit-input-placeholder {
+            font-weight: 100;
+            color: var(--color-grey-light-4);
+        }
+    }
+
+    &__input:focus+&__button {
+        //"+" - first, next sibling (adjasent el).
+        background-color: var(--color-grey-light-3);
+    }
+
+    &__button {
+        border: none;
+        background-color: var(--color-grey-light-2); //"magnifying glass"; same color as the searching bar
+
+        &:focus {
+            outline: none;
+        }
+
+        &:active {
+            transform: translateY(2px); //"pushing effect".
+        }
+    }
+
+    &__icon {
+        height: 2rem;
+        width: 2rem;
+        fill: var(--color-grey-dark-3); //coloring of an SVG item.
+    }
+}
+
+///////////////////////////////
+//          USER NAV         //
+
+.user-nav {
+    align-self: stretch; //stretch the flex el along the CROSS axis.
+
+    display: flex; //display els in a row.
+    // align-items: center; //align children els along the CROSS axis.
+
+    & > * { //">" select direct children.
+        padding: 0 2rem;
+        cursor: pointer;
+        height: 100%; //make els to occupy the container hieght.
+
+        display: flex; //make the elements as flex containers for its children els.
+        align-items: center; //align children els along the CROSS axis.
+    }
+    
+    & > *:hover {
+        background-color: var(--color-grey-light-2);
+    }
+
+    &__icon-box {
+        position: relative;
+    }
+
+    &__icon {
+        height: 2.25rem;
+        width: 2.25rem;
+        fill: var(--color-grey-dark-2); //coloring SVG els.
+    }
+
+    &__notification {
+        font-size: .8rem;
+        height: 1.75rem;
+        width: 1.75rem;
+        border-radius: 50%;
+        color: #fff;
+        background-color: var(--color-primary);
+        position: absolute;
+        top: 1.5rem;
+        left: 3rem;
+
+        display: flex; //position text inside "notification".
+        justify-content: center;
+        align-items: center;
+    }
+
+    // &__user {}
+
+    &__user-photo {
+        height: 3.75rem;
+        border-radius: 50%;
+        margin-right: 1rem;
+    }
+
+    // &__user-name {}
+}

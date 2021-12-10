@@ -8,9 +8,14 @@
 }
 
 .header {
- height: 7rem;
- background-color: #fff;
- border-bottom: 1px solid var(--color-grey-light-2);
+    font-size: 1.4rem;
+    height: 7rem;
+    background-color: #fff;
+    border-bottom: 1px solid var(--color-grey-light-2);
+
+    display: flex; //position children els in a row
+    justify-content: space-between; //position children els horizontally along the MAIN axis
+    align-items: center; //center children els vertically along the CROSS axis
 }
 
 .content {
@@ -18,12 +23,12 @@
 }
 
 .sidebar {
- background-color: var(--color-grey-dark-1);
- 
- flex: 0 0 18%;
+    background-color: var(--color-grey-dark-1);
+
+    flex: 0 0 18%;
 }
 
 .hotel-view {
-    
+
     flex: 1;
 }
