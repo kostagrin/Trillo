@@ -65,7 +65,6 @@
 
 ///////////////////////////////
 //          USER NAV         //
-
 .user-nav {
     align-self: stretch; //stretch the flex el along the CROSS axis.
 
@@ -120,4 +119,75 @@
     }
 
     // &__user-name {}
+}
+
+///////////////////////////////
+//      SIDE NAVIGATION      //
+.side-nav {
+    font-size: 1.4rem;
+    margin-top: 3.5rem;
+
+    &__item {
+        list-style: none;
+        position: relative;
+
+        &:not(:last-child) { //all els exept the last one
+            margin-bottom: .5rem;
+        }
+    }
+
+    &__item::before {
+        content: ""; //must-have property for this pseudo class
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%; //same hight as of its parent
+        width: 3px;
+        background-color: var(--color-primary);
+
+        //animation
+        transform: scaleY(0); //initial state (invisible);
+        transition: transform .2s, //transforms animation in Y derection (from middle up and down). First effect;
+                    width .4s cubic-bezier(1,0,0,1) .2s; //transforms animation in X derection (to 100%) during .4s with a delay of .2s. Second effect.
+                    background-color: .1s; //delay for changing the color on click.
+    }
+
+    //animation (action on hover)
+    &__item:hover::before,
+    &__item--active::before { //make the first item animated by default.
+       transform: scaleY(1); //first effect;
+       width: 100%; //second effect.
+    }
+
+    &__item:active::before {
+        background-color: var(--color-primary-light); //animation for clicking effect.
+    }
+
+    &__link:link,
+    &__link:visited {
+        color: var(--color-grey-light-1);
+        text-decoration: none;
+        text-transform: uppercase;
+        display: block;
+        padding: 1.5rem 3rem;
+        position: relative; //need this property in order to make z-index working;
+        z-index: 1; //display the element on top of the animated color bar.
+
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon {
+        width: 1.75rem;
+        height: 1.75rem;
+        margin-right: 2rem;
+        fill: currentColor; //inherits the parent's color
+    }
+}
+
+.legal {
+    font-size: 1.2rem;
+    color: var(--color-grey-light-4);
+    text-align: center;
+    padding: 2.5rem;
 }

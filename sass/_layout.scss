@@ -26,9 +26,15 @@
     background-color: var(--color-grey-dark-1);
 
     flex: 0 0 18%;
+
+    display: flex; //prepare for formatting (apply justify-content: space-between)
+    flex-direction: column;
+    justify-content: space-between; //move "legal" block down to the bottom
 }
 
 .hotel-view {
+    background-color: #fff;
 
+    height: 80rem; //temporary
     flex: 1;
 }
