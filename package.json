@@ -7,7 +7,6 @@
     "watch:sass": "node-sass sass/main.scss css/style.css -w",
     "devserver": "live-server",
     "start": "npm-run-all --parallel devserver watch:sass",
-
     "compile:sass": "node-sass sass/main.scss css-build/style.comp.css",
     "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css-build/style.concat.css -o css-build/style.prefix.css",
     "compress:css": "node-sass css-build/style.prefix.css css/style.min.css --output-style compressed",
@@ -30,8 +29,10 @@
   },
   "homepage": "https://github.com/kostagrin/Trillo#reaadme",
   "devDependencies": {
+    "@hint/configuration-web-recommended": "^8.2.6",
     "autoprefixer": "^10.4.0",
     "concat": "^1.0.3",
+    "hint": "^6.1.9",
     "node-sass": "^7.0.0",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^9.0.2"
