@@ -191,3 +191,118 @@
     text-align: center;
     padding: 2.5rem;
 }
+
+///////////////////////////////
+//          GALLERY          //
+.gallery {
+    display: flex; //display imaged in one row, side by side.
+    
+    &__photo {
+        width: 100%; //to make images flexible for responsive design width or a hight should be defined in "%", so the image stays fluid.
+        display: block; //to make images occupy hole parent's height.        
+    }
+}
+
+///////////////////////////////
+//          OVERVIEW         //
+.overview {
+    border-bottom: 1px solid var(--color-grey-light-2);
+    
+    display: flex;
+    align-items: center; //center along the CROSS axis.
+
+    &__heading {
+        font-size: 2.25rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 1.5rem 3rem;
+    }
+
+    &__stars {
+        margin-right: auto; //usefull hack to position els inside a flex box! Moves the "stars" all the way down to the left and pushes the "location" icon to the right.
+        display: flex; //get rid of space below of els.
+    }
+
+    &__icon-star,
+    &__icon-location {
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: var(--color-primary);
+    }
+
+    &__location {
+        font-size: 1.2rem;
+        
+        display: flex;
+        align-items: center;
+    }
+    
+    &__rating {
+        margin-left: 3rem;
+        padding: 0 2.25rem;
+        color: var(--color-grey-light-1);
+        background-color: var(--color-primary);
+        
+        align-self: stretch; //stretch the el to occupy all height
+        display: flex; //for positioning els inside the "overview" container. Altogether it changes the direction of els to row.
+        flex-direction: column; //cnange the direction back to column
+        align-items: center;
+        justify-content: center;
+    }
+    
+    &__rating-average {
+        font-size: 2.25rem;
+        font-weight: 300;
+    }
+
+    &__rating-count {
+        font-size: .8rem;
+        text-transform: uppercase;
+        margin-bottom: -.3rem;     
+    }
+    
+
+    .btn-inline {
+        display: inline-block;
+        margin-left: .5rem; //give some spase for the locaction icon
+        font-size: inherit; //CHECK IN LESSON 81 WHY
+        color: var(--color-primary);
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid currentColor; //set the color exactly the same as the text inside the el.
+        padding-bottom: 2px;
+        cursor: pointer;
+        transition: all .2s;
+
+        &:hover {
+            color: var(--color-grey-dark-1);
+            animation: pulsate 1s infinite;
+        }
+
+        &:focus {
+            outline: none; //remove default blue border
+        }
+    }
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 2px 4px rgba(0,0,0,.25);       
+    }
+    
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+}
+
+
+///////////////////////////////
+//          NEXT ONE         //
