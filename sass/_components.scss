@@ -311,3 +311,76 @@
         box-shadow: none;
     }
 }
+
+///////////////////////////////
+//         PARAGRAPH         //
+.paragraph:not(:last-of-type) {
+    padding-bottom: 2rem;
+}
+
+///////////////////////////////
+//         BTN INLINE        //
+.list {
+    padding: 2rem 0;
+    list-style: none;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+        flex: 0 0 50%; //devide the items in 2 columns
+        margin-bottom: .7rem;
+
+        display: flex;
+        align-items: start;
+
+        &::before {
+            content: "";
+            display: inline-block;
+            height: 1.4rem;
+            width: 1.4rem;
+            margin-right: .7rem;
+            margin-top: .5rem;
+
+            // older berowsers
+            // background-image: url(../img/svg/chevron-thin-right.svg);
+            // background-size: cover;
+
+            //newer berowsers
+            background-color: var(--color-primary);
+            mask-image: url(../img/svg/chevron-thin-right.svg);
+            mask-size: cover;
+
+        }
+    }
+}
+
+///////////////////////////////
+//         RECOMMEND         //
+.recommend {
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-3);
+
+    display: flex;
+    align-items: center;
+
+    &__count {
+        margin-right: auto;
+    }
+
+    // &__friends {
+
+    // }
+
+    &__photo {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        border: 2px solid var(--color-grey-light-1);
+        box-sizing: content-box; //move the border outside of the pictures
+
+        &:not(:last-of-type) {
+            margin-right: -1.5rem; //put the picturears one on top of the other
+        }
+    }
+}
