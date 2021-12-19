@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --color-primary: #eb2f64;
   --color-primary-light: #FF3366;
@@ -257,8 +258,15 @@ body {
   cursor: pointer;
   transition: all 0.2s;
 }
+.btn-inline span {
+  margin-left: 3px;
+  transition: margin-left 0.2s;
+}
 .btn-inline:hover {
   color: var(--color-grey-dark-1);
+}
+.btn-inline:hover span {
+  margin-left: 8px;
 }
 .btn-inline:focus {
   outline: none;
@@ -345,6 +353,59 @@ body {
   margin-right: -1.5rem;
 }
 
+.review {
+  background-color: #fff;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+  padding: 3rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.review__text {
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+.review__user {
+  display: flex;
+  align-items: center;
+}
+.review__phopto {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  margin-right: 1.5rem;
+}
+.review__user-box {
+  margin-right: auto;
+  shape-outside: circle(50%);
+}
+.review__user-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.review__user-date {
+  font-size: 1rem;
+  color: var(--color-grey-dark-3);
+}
+.review__rating {
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--color-primary);
+}
+.review::before {
+  content: "“";
+  font-size: 20rem;
+  font-family: sans-serif;
+  line-height: 1;
+  color: var(--color-grey-light-2);
+  position: absolute;
+  top: -2.75rem;
+  left: -1rem;
+}
+
 .container {
   max-width: 120rem;
   margin: 8rem auto;
@@ -385,21 +446,21 @@ body {
   background-color: var(--color-grey-light-1);
   border-top: 1px solid var(--color-grey-light-2);
   border-bottom: 1px solid var(--color-grey-light-2);
+  font-size: 1.4rem;
   display: flex;
-}
-.detail > * {
-  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.06);
 }
 
 .description {
   margin-right: 4.5rem;
   padding: 3rem;
   background-color: #fff;
-  font-size: 1.4rem;
   flex: 0 0 60%;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.06);
 }
 
-.user-review {
-  background-color: aqua;
+.user-reviews {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }/*# sourceMappingURL=main.css.map */

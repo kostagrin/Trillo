@@ -43,23 +43,22 @@
     background-color: var(--color-grey-light-1);
     border-top: 1px solid var(--color-grey-light-2);
     border-bottom: 1px solid var(--color-grey-light-2);
+    font-size: 1.4rem;
 
     display: flex;
-
-    & > * {
-        box-shadow: 0 2rem 5rem rgba(0, 0, 0, .06);   
-    }
 }
 
 .description {
     margin-right: 4.5rem;
     padding: 3rem;
     background-color: #fff;
-    font-size: 1.4rem;
     flex: 0 0 60%; //grow = 0, shrink = 0, width 60% of the "detail" (parent el).
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, .06);   
 }
 
-.user-review {
-    background-color: aqua;
-    flex: 1; //flex-grow = 1 will occupy the remaning spase of the "detail" el.
+.user-reviews {
+    flex: 1; //flex-grow = 1 will occupy the remaning spase of the "detail" el.  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

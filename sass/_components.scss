@@ -71,7 +71,8 @@
     display: flex; //display els in a row.
     // align-items: center; //align children els along the CROSS axis.
 
-    & > * { //">" select direct children.
+    &>* {
+        //">" select direct children.
         padding: 0 2rem;
         cursor: pointer;
         height: 100%; //make els to occupy the container hieght.
@@ -79,8 +80,8 @@
         display: flex; //make the elements as flex containers for its children els.
         align-items: center; //align children els along the CROSS axis.
     }
-    
-    & > *:hover {
+
+    &>*:hover {
         background-color: var(--color-grey-light-2);
     }
 
@@ -131,7 +132,8 @@
         list-style: none;
         position: relative;
 
-        &:not(:last-child) { //all els exept the last one
+        &:not(:last-child) {
+            //all els exept the last one
             margin-bottom: .5rem;
         }
     }
@@ -148,15 +150,16 @@
         //animation
         transform: scaleY(0); //initial state (invisible);
         transition: transform .2s, //transforms animation in Y derection (from middle up and down). First effect;
-                    width .4s cubic-bezier(1,0,0,1) .2s; //transforms animation in X derection (to 100%) during .4s with a delay of .2s. Second effect.
-                    background-color: .1s; //delay for changing the color on click.
+            width .4s cubic-bezier(1, 0, 0, 1) .2s; //transforms animation in X derection (to 100%) during .4s with a delay of .2s. Second effect.
+        background-color: .1s; //delay for changing the color on click.
     }
 
     //animation (action on hover)
     &__item:hover::before,
-    &__item--active::before { //make the first item animated by default.
-       transform: scaleY(1); //first effect;
-       width: 100%; //second effect.
+    &__item--active::before {
+        //make the first item animated by default.
+        transform: scaleY(1); //first effect;
+        width: 100%; //second effect.
     }
 
     &__item:active::before {
@@ -195,10 +198,10 @@
 ///////////////////////////////
 //         HOTEL VIEW        //
 // .hotel-view {
-    
+
 // }
 
-.gallery  {
+.gallery {
     display: flex; //display imaged in a row
 
     &__photo {
@@ -210,7 +213,7 @@
 
 ///////////////////////////////
 //          OVERVIEW         //
-.overview   {
+.overview {
     border-bottom: 1px solid var(--color-grey-light-2);
 
     display: flex;
@@ -244,7 +247,7 @@
         font-size: 1.2rem;
         display: flex;
         align-items: center;
-        align-self: stretch; 
+        align-self: stretch;
     }
 
     &__rating {
@@ -281,12 +284,21 @@
     border: none;
     border-bottom: 1px solid currentColor; //make the border color the same as the text of the button
     padding-bottom: 2px;
-    font-size: inherit; 
+    font-size: inherit;
     cursor: pointer;
     transition: all .2s;
 
+    & span {
+        margin-left: 3px;
+        transition: margin-left .2s;
+    }
+
     &:hover {
         color: var(--color-grey-dark-1);
+
+        & span {
+            margin-left: 8px;
+        }
     }
 
     &:focus {
@@ -300,13 +312,13 @@
         transform: scale(1);
         box-shadow: none;
     }
-    
+
     50% {
         transform: scale(1.05);
-        box-shadow: 0 1rem 4rem rgba(0,0,0,.25);
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, .25);
     }
-    
-    100% {        
+
+    100% {
         transform: scale(1);
         box-shadow: none;
     }
@@ -383,4 +395,70 @@
             margin-right: -1.5rem; //put the picturears one on top of the other
         }
     }
+}
+
+///////////////////////////////
+//          REVIEW           //
+.review {
+    background-color: #fff;
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, .06); 
+    padding: 3rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+    overflow: hidden;
+
+
+    &__text {
+        margin-bottom: 2rem;
+        position: relative; //for the z-index to let it work
+        z-index: 1;
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+    }
+
+    &__phopto {
+        width: 4.5rem;
+        height: 4.5rem;
+        border-radius: 50%;
+        margin-right: 1.5rem;
+    }
+
+    &__user-box {
+        margin-right: auto;
+        shape-outside: circle(50%);
+    }
+
+    &__user-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: .4rem;
+    }
+
+    &__user-date {
+        font-size: 1rem;
+        color: var(--color-grey-dark-3);
+    }
+
+    &__rating {
+        font-size: 2.2rem;
+        font-weight: 300;
+        color: var(--color-primary);
+    }
+
+    &::before {
+        content: "\201C";
+        font-size: 20rem;
+        font-family: sans-serif;
+        line-height: 1;
+        color: var(--color-grey-light-2);
+        position: absolute;
+        top: -2.75rem;
+        left: -1rem;
+        // z-index: 1;
+    }
+
 }
