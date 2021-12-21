@@ -404,7 +404,7 @@
 //          REVIEW           //
 .review {
     background-color: #fff;
-    box-shadow: 0 2rem 5rem rgba(0, 0, 0, .06); 
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, .06);
     padding: 3rem;
     margin-bottom: 3.5rem;
     position: relative;
@@ -463,5 +463,65 @@
         left: -1rem;
         // z-index: 1;
     }
+}
 
+///////////////////////////////
+//      CALL TO ACTION       //
+.cta {
+    padding: 3.5rem;
+    text-align: center; //center both h2 and button els
+
+    &__book-now {
+        font-size: 2rem;
+        text-transform: uppercase;
+        margin-bottom: 2.5rem;
+    }
+}
+
+.btn {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 100px; //make round corners
+    // padding: 2rem 7.5rem;
+    background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+    color: var(--color-grey-light-2);
+    position: relative;
+    overflow: hidden; //hide invisible part of the button
+    cursor: pointer;
+
+    &>* {
+        transition: all .2s;
+        display: inline-block; // in order to apply paddings
+        width: 100%; //occupy the whole width and hight of the parent el and centers
+    }
+
+    &__visible {
+        padding: 2rem 7.5rem; //define actual size of the button
+    }
+
+    &__invisible {
+        position: absolute; //hide text of the el
+        left: 0;
+        top: -100%; //shifts the whole el up
+        padding: 2rem 0; // 0 on left and right in order to give enough spase for the content
+    }
+
+    &:hover {
+        background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
+    }
+
+    &:hover &__visible {
+        transform: translateY(100%); //move visible part of the btn down
+    }
+
+    &:hover &__invisible {
+        top: 0; //move invisible part of the btn down
+    }
+
+    &:focus {
+        outline: none;
+        animation: pulsate 1s infinite;
+    }
 }
