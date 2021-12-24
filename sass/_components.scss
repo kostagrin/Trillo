@@ -14,6 +14,12 @@
     justify-content: center; //align children els along the MAIN axis.
     align-items: center; //align children els along the CROSS axis.
 
+    @media only screen and(max-width: 30em) { //480px/16px = 30%
+        order: 1; //STEP-1: move el to the end of its parent box (STEP-2 find in _layout - header)
+        flex: 0 0 80%; //STEP-3: make it big enough to let STEP-2 work
+        margin: 0 auto; //center the el
+    }
+
     &__input {
         font-family: inherit; //fonts in <form> are not inhereted automatically.
         font-size: inherit;
@@ -135,6 +141,14 @@
         &:not(:last-child) {
             //all els exept the last one
             margin-bottom: .5rem;
+
+            @media only screen and (max-width: 56.25em) {
+                margin: 0;
+            }
+        }
+
+        @media only screen and (max-width: 56.25em) {
+            flex: 1; //stretch all items as much as possible
         }
     }
 
@@ -178,6 +192,16 @@
 
         display: flex;
         align-items: center;
+
+        @media only screen and (max-width: 56.25em) {
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @media only screen and(max-width: 37.5em) {
+            flex-direction: column;
+            padding: 1.5rem .5rem;
+        }
     }
 
     &__icon {
@@ -185,6 +209,18 @@
         height: 1.75rem;
         margin-right: 2rem;
         fill: currentColor; //inherits the parent's color
+
+        @media only screen and(max-width: 37.5em) {
+            margin-right: 0; //center icons
+            margin-bottom: .7rem;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+
+    @media only screen and (max-width: 56.25em) {
+        display: flex;
+        margin: 0;
     }
 }
 
@@ -193,6 +229,11 @@
     color: var(--color-grey-light-4);
     text-align: center;
     padding: 2.5rem;
+
+    @media only screen and (max-width: 56.25em) {
+        display: none;
+
+    }
 }
 
 ///////////////////////////////
@@ -225,6 +266,11 @@
         font-weight: normal;
         text-transform: uppercase;
         letter-spacing: 1px;
+
+        @media only screen and(max-width: 37.5em) {
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+        }
     }
 
     &__stars {
@@ -262,15 +308,27 @@
         justify-content: center;
         align-items: center;
 
+        @media only screen and(max-width: 37.5em) {
+            padding: 0 1.5rem;
+        }
+
         &-average {
             font-size: 2.25rem;
             font-weight: normal;
             margin-bottom: -3px;
+
+            @media only screen and(max-width: 37.5em) {
+                font-size: 1.8rem;
+            }
         }
 
         &-count {
             font-size: .8rem;
             text-transform: uppercase;
+            
+            @media only screen and(max-width: 37.5em) {
+                font-size: .5rem;
+            }
         }
     }
 }
@@ -383,9 +441,9 @@
         margin-right: auto;
     }
 
-    // &__friends {
-
-    // }
+    &__friends {
+        display: flex; //keep photos in one row
+    }
 
     &__photo {
         width: 4rem;
@@ -395,7 +453,7 @@
         box-sizing: content-box; //move the border outside of the pictures
 
         &:not(:last-of-type) {
-            margin-right: -1.5rem; //put the picturears one on top of the other
+            margin-right: -1.3rem; //put the picturears one on top of the other
         }
     }
 }
@@ -410,16 +468,32 @@
     position: relative;
     overflow: hidden;
 
+    @media only screen and (max-width: 56.25em) {
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
+   
+    @media only screen and (max-width: 37.5em) {
+        display: flex;
+    }
 
     &__text {
         margin-bottom: 2rem;
         position: relative; //for the z-index to let it work
         z-index: 1;
+
+        @media only screen and (max-width: 37.5em) {
+            margin-right: 2rem;
+        }
     }
 
     &__user {
         display: flex;
         align-items: center;
+
+        @media only screen and(max-width: 37.5em) {
+            justify-content: flex-end;
+        }
     }
 
     &__phopto {
@@ -432,6 +506,10 @@
     &__user-box {
         margin-right: auto;
         shape-outside: circle(50%);
+
+        @media only screen and(max-width: 37.5em) {
+            margin-right: 1rem;
+        }
     }
 
     &__user-name {
@@ -462,7 +540,17 @@
         top: -2.75rem;
         left: -1rem;
         // z-index: 1;
+        
+        @media only screen and(max-width: 56.25em) { // 900px/16px = 56.25%
+            font-size: 18rem;
+        }
+        
+        @media only screen and(max-width: 37.5em) { // 600px/16px = 37.5%
+            font-size: 14rem;
+            top: -1.75rem;
+        }
     }
+
 }
 
 ///////////////////////////////
@@ -475,7 +563,20 @@
         font-size: 2rem;
         text-transform: uppercase;
         margin-bottom: 2.5rem;
+        
+        @media only screen and(max-width: 37.5em) {
+            font-size: 1.5rem;
+        }
     }
+
+    @media only screen and (max-width: 56.25em) {
+        padding: 2.5rem;
+    }
+
+    @media only screen and(max-width: 37.5em) {
+        padding: 2rem;
+    }
+
 }
 
 .btn {
@@ -491,10 +592,18 @@
     overflow: hidden; //hide invisible part of the button
     cursor: pointer;
 
+    @media only screen and(max-width: 37.5em) {
+        font-size: 1.2rem;
+    }
+
     &>* {
         transition: all .2s;
         display: inline-block; // in order to apply paddings
         width: 100%; //occupy the whole width and hight of the parent el and centers
+
+        @media only screen and(max-width: 37.5em) {
+            
+        }
     }
 
     &__visible {
