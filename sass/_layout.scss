@@ -1,10 +1,14 @@
 .container {
-    max-width: 120rem;
+    max-width: 120rem; //acrual size will be: 120 * 10px (or 62.5% ) = 1200px. In case the root font-size changes (for instance to 50%, which is 16px/8px) then 1rem will be 8px, and 120rem will become: 120*8 = 960px!
     margin: 8rem auto;
     background-color: var(--color-grey-light-1);
     box-shadow: var(--shadow-dark);
 
-    min-height: 50rem;
+    @media only screen and (max-width: 75em) {
+        margin: 0;
+        max-width: 100%;
+        height: 100vh;
+    }
 }
 
 .header {
@@ -16,10 +20,21 @@
     display: flex; //position children els in a row
     justify-content: space-between; //position children els horizontally along the MAIN axis
     align-items: center; //center children els vertically along the CROSS axis
+
+    @media only screen and(max-width: 30em) { //480px/16px = 30%
+        flex-wrap: wrap;  //STEP-2: move the "search" el to the bottom of this box
+        align-content: space-around;
+        height: 11rem;
+    }
 }
 
 .content {
     display: flex;
+
+    @media only screen and (max-width: 56.25em) {
+        //900px/16px = 56.25%
+        flex-direction: column;
+    }
 }
 
 .sidebar {
@@ -30,12 +45,20 @@
     display: flex; //prepare for formatting (apply justify-content: space-between)
     flex-direction: column;
     justify-content: space-between; //move "legal" block down to the bottom
+
+    @media only screen and (max-width: 75em) {
+        max-height: 100%;
+    }
 }
 
 .hotel-view {
     background-color: #fff;
 
     flex: 1;
+
+    @media only screen and (max-width: 75em) {
+        max-height: 100%;
+    }
 }
 
 .detail {
@@ -46,6 +69,14 @@
     font-size: 1.4rem;
 
     display: flex;
+
+    @media only screen and (max-width: 56.25em) {
+        padding: 3rem;
+    }
+
+    @media only screen and(max-width: 37.5em) { //600px
+        flex-direction: column;
+    }
 }
 
 .description {
@@ -53,7 +84,16 @@
     padding: 3rem;
     background-color: #fff;
     flex: 0 0 60%; //grow = 0, shrink = 0, width 60% of the "detail" (parent el).
-    box-shadow: 0 2rem 5rem rgba(0, 0, 0, .06);   
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, .06);
+    
+    @media only screen and (max-width: 56.25em) {
+        padding: 2rem;
+        margin-right: 3rem;
+    }
+
+    @media only screen and(max-width: 37.5em) { //600px
+        margin: 0 0 2rem 0;
+    }
 }
 
 .user-reviews {
