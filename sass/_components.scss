@@ -14,7 +14,8 @@
     justify-content: center; //align children els along the MAIN axis.
     align-items: center; //align children els along the CROSS axis.
 
-    @media only screen and(max-width: 30em) { //480px/16px = 30%
+    @media only screen and(max-width: 30em) {
+        //480px/16px = 30%
         order: 1; //STEP-1: move el to the end of its parent box (STEP-2 find in _layout - header)
         flex: 0 0 80%; //STEP-3: make it big enough to let STEP-2 work
         margin: 0 auto; //center the el
@@ -245,9 +246,59 @@
 .gallery {
     display: flex; //display imaged in a row
 
+    &-item {
+        background-color: #000;
+        overflow: hidden;
+        position: relative;
+        transition: all .3s;
+
+        &--1 {
+            color: var(--color-primary-light);
+        }
+
+        &--2 {
+            color: var(--color-primary);
+        }
+
+        &--3 {
+            color: var(--color-primary-dark);
+        }
+        
+        & figcaption {
+            transition: all .5s;
+            opacity: 0;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+            font-size: 1rem;
+            color: inherit;
+        }
+
+        &:hover {
+            & figcaption {
+                opacity: 1;
+                bottom: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 2rem;
+                text-shadow: 0 1px 3px #fff;
+            }
+        }
+    }
+
     &__photo {
         width: 100%; //width in % for responcive beheviour. 100% will ocupy all available parent's width
         display: block; //remove white space beneath 
+        transform: scale(1);
+        opacity: .85;
+        transition: all .3s;
+
+        &:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
     }
 }
 
@@ -325,7 +376,7 @@
         &-count {
             font-size: .8rem;
             text-transform: uppercase;
-            
+
             @media only screen and(max-width: 37.5em) {
                 font-size: .5rem;
             }
@@ -475,7 +526,7 @@
         padding: 2rem;
         margin-bottom: 3rem;
     }
-   
+
     @media only screen and (max-width: 37.5em) {
         display: flex;
     }
@@ -543,12 +594,14 @@
         top: -2.75rem;
         left: -1rem;
         // z-index: 1;
-        
-        @media only screen and(max-width: 56.25em) { // 900px/16px = 56.25%
+
+        @media only screen and(max-width: 56.25em) {
+            // 900px/16px = 56.25%
             font-size: 18rem;
         }
-        
-        @media only screen and(max-width: 37.5em) { // 600px/16px = 37.5%
+
+        @media only screen and(max-width: 37.5em) {
+            // 600px/16px = 37.5%
             font-size: 14rem;
             top: -1.75rem;
         }
@@ -566,7 +619,7 @@
         font-size: 2rem;
         text-transform: uppercase;
         margin-bottom: 2.5rem;
-        
+
         @media only screen and(max-width: 37.5em) {
             font-size: 1.5rem;
         }
@@ -604,9 +657,7 @@
         display: inline-block; // in order to apply paddings
         width: 100%; //occupy the whole width and hight of the parent el and centers
 
-        @media only screen and(max-width: 37.5em) {
-            
-        }
+        @media only screen and(max-width: 37.5em) {}
     }
 
     &__visible {
