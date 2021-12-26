@@ -405,7 +405,7 @@
         margin-bottom: .7rem;
 
         display: flex;
-        align-items: start;
+        align-items: flex-start;
 
         &::before {
             content: "";
@@ -416,13 +416,16 @@
             margin-top: .5rem;
 
             // older berowsers
-            // background-image: url(../img/svg/chevron-thin-right.svg);
-            // background-size: cover;
+            background-image: url(../img/svg/chevron-thin-right.svg);
+            background-size: cover;
 
             //newer berowsers
-            background-color: var(--color-primary);
-            mask-image: url(../img/svg/chevron-thin-right.svg);
-            mask-size: cover;
+            @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+                background-color: var(--color-primary);
+                mask-image: url(../img/svg/chevron-thin-right.svg);
+                mask-size: cover;
+                background-image: none; //remove bg-image in certain case
+            }
 
         }
     }
